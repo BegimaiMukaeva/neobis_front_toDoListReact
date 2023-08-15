@@ -1,0 +1,160 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body {
+    font-family:Arial, sans-serif;
+    background-color: rgba(234, 231, 231, 0.84);
+}
+.container {
+    width: 530px;
+    margin: 20px auto;
+}
+.name-here {
+    font-size: 30px;
+    font-weight: 700;
+}
+.todo-title {
+    font-size: 20px;
+    font-weight: 500;
+    text-transform: uppercase;
+    color: #6a6969;
+    margin: 20px 0 8px 0;
+}
+.todo-list-text {
+    font-size: 18px;
+    color: #6a6969;
+}
+.user-name {
+    width: 160px;
+    border: none;
+    outline: none;
+    background-color: rgba(234, 231, 231, 0.84);
+    font-size: 30px;
+    font-weight: 700;
+}
+#todo-name {
+    width: 100%;
+    height: 50px;
+    border-radius: 12px;
+    background-color: white;
+    border: none;
+    padding: 10px;
+    box-shadow: 2px 2px 2px 2px darkgray;
+    font-size: 18px;
+    font-weight: 500;
+    margin: 14px 0;
+}
+.category-text {
+    font-size: 18px;
+    color: #6a6969;
+}
+.radio-boxes {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+.radio-box {
+    width: 250px;
+    height: 70px;
+    background-color: #ffff;
+    box-shadow: 2px 2px 2px 2px darkgray;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+}
+.add-button {
+    width: 100%;
+    height: 50px;
+    background-color: #2a79f7;
+    border: none;
+    border-radius: 10px;
+    margin: 20px 0;
+    font-size: 18px;
+    color: #ffffff;
+}
+#todo-list {
+    list-style: none;
+    padding: 0;
+}
+#todo-list li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    background-color: #fff;
+    padding: 8px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+li input[type="checkbox"] {
+    margin-right: 10px;
+}
+li span {
+    flex: 1;
+}
+.edit-button {
+    background-color: #FFC107;
+    margin-left: 10px;
+    color: #fff;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    width: 65px;
+}
+.delete-button {
+    background-color: #DC3545;
+    margin-left: 10px;
+    color: #fff;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    width: 65px;
+}
+.radio-box input[type="radio"] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: 2px solid #000;
+  outline: none;
+  margin-right: 8px;
+}
+#todo-list input[type="checkbox"] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #ccc;
+  border-radius: 50%;
+  outline: none;
+  margin-right: 8px;
+}
+#todo-list input[type="checkbox"][data-category="Business"] {
+  border-color: #2a82ee;
+}
+#todo-list input[type="checkbox"][data-category="Personal"] {
+  border-color: #ef0fe4;
+}
+#todo-list li {
+    border: none;
+    outline: none;
+}
+.editing span {
+  width: 200px;
+  padding: 5px;
+  border: none;
+  outline: none;
+}
+
+
+
+
