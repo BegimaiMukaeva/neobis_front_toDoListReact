@@ -5,9 +5,19 @@ import './styles/app.css';
 
 function App() {
   const [tasks, setTasks] = useState([]);
+  const [businessChecked, setBusinessChecked] = useState(false);
+  const [personalChecked, setPersonalChecked] = useState(false);
 
-  const addTask = (newTask) => {
+  const addTask = (newTaskName, newTaskCategory) => {
+    const newTask = {
+      id: Date.now(),
+      name: newTaskName,
+      category: newTaskCategory,
+      completed: false,
+    };
     setTasks([...tasks, newTask]);
+    setBusinessChecked(false);
+    setPersonalChecked(false);
   };
 
   const toggleTask = (taskId) => {
@@ -32,7 +42,16 @@ function App() {
 
   return (
     <div className="container">
-      <TodoForm addTask={addTask} />
+      <NameHere />
+      <TodoTitle />
+      <TodoListText />
+      <TodoForm
+        addTask={addTask}
+        businessChecked={businessChecked}
+        personalChecked={personalChecked}
+        onBusinessCheckedChange={setBusinessChecked}
+        onPersonalCheckedChange={setPersonalChecked}
+      />
       <TodoList
         tasks={tasks}
         toggleTask={toggleTask}
@@ -41,6 +60,22 @@ function App() {
       />
     </div>
   );
+}
+
+function NameHere() {
+  return (
+    <div className="name-here">
+      What's up , <input className="user-name" type="text" placeholder="Name here" />
+    </div>
+  );
+}
+
+function TodoTitle() {
+  return <p className="todo-title">Create a todo</p>;
+}
+
+function TodoListText() {
+  return <p className="todo-list-text">What's on your todo list?</p>;
 }
 
 export default App;

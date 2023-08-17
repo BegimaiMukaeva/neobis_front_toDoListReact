@@ -1,15 +1,25 @@
 import React, { useState } from 'react';
 
-function TodoForm({ addTask }) {
+function TodoForm({ addTask, businessChecked, personalChecked, onBusinessCheckedChange, onPersonalCheckedChange }) {
   const [todoName, setTodoName] = useState('');
-  const [category, setCategory] = useState('');
+
+  const handleCategoryChange = (category) => {
+    if (category === 'Business') {
+      onBusinessCheckedChange(!businessChecked);
+      onPersonalCheckedChange(false);
+    } else if (category === 'Personal') {
+      onPersonalCheckedChange(!personalChecked);
+      onBusinessCheckedChange(false);
+    }
+  };
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    if (todoName !== '' && category !== '') {
-      addTask(todoName, category);
+    if (todoName.trim() !== '') {
+      addTask(todoName, businessChecked ? 'Business' : 'Personal');
       setTodoName('');
-      setCategory('');
+      onBusinessCheckedChange(false);
+      onPersonalCheckedChange(false);
     }
   };
 
@@ -20,34 +30,32 @@ function TodoForm({ addTask }) {
         id="todo-name"
         placeholder="Task name"
         value={todoName}
-        onChange={(event) => setTodoName(event.target.value)}
+        onChange={(e) => setTodoName(e.target.value)}
         required
       />
       <p className="category-text">Pick a category</p>
       <div className="radio-boxes">
-        <div className="radio-box">
-          <label>
+        <div className={`radio-box ${businessChecked ? 'checked' : ''}`}>
+          <label className="business">
             <input
               type="radio"
               name="category"
               value="Business"
-              id="business-radio"
-              checked={category === 'Business'}
-              onChange={() => setCategory('Business')}
-            />{' '}
+              checked={businessChecked}
+              onChange={() => handleCategoryChange('Business')}
+            />
             Business
           </label>
         </div>
-        <div className="radio-box">
-          <label>
+        <div className={`radio-box ${personalChecked ? 'checked' : ''}`}>
+          <label className="personal">
             <input
               type="radio"
               name="category"
               value="Personal"
-              id="personal-radio"
-              checked={category === 'Personal'}
-              onChange={() => setCategory('Personal')}
-            />{' '}
+              checked={personalChecked}
+              onChange={() => handleCategoryChange('Personal')}
+            />
             Personal
           </label>
         </div>

@@ -94,6 +94,7 @@ li input[type="checkbox"] {
 li span {
     flex: 1;
 }
+
 .edit-button {
     background-color: #FFC107;
     margin-left: 10px;
@@ -116,44 +117,105 @@ li span {
     cursor: pointer;
     width: 65px;
 }
+.save-button {
+    background-color: #2a82ee;
+    color: #fff;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    width: 65px;
+}
+
+.save-button:hover {
+    background-color: green;
+}
 .radio-box input[type="radio"] {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  width: 16px;
-  height: 16px;
-  border-radius: 50%;
-  border: 2px solid #000;
-  outline: none;
-  margin-right: 8px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    border: 2px solid ;
+    outline: none;
+    margin-right: 8px;
+    position: relative;
+}
+.radio-box input[type="radio"]:checked::before {
+    position: absolute;
+    content: '\2713';
+    color: green;
+    font-size: 24px;
+    font-weight: bold;
+    bottom: -4px;
+}
+
+.radio-box .business input[type="radio"]{
+    border: 2px solid #2a82ee;
+}
+.radio-box .personal input[type="radio"] {
+    border: 2px solid #ef0fe4;
 }
 #todo-list input[type="checkbox"] {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  width: 20px;
-  height: 20px;
-  border: 2px solid #ccc;
-  border-radius: 50%;
-  outline: none;
-  margin-right: 8px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #ccc;
+    border-radius: 50%;
+    outline: none;
+    margin-right: 8px;
+}
+.task-completed {
+    text-decoration: line-through;
+    position: relative;
+}
+.task-completed::before {
+    content: '\2713';
+    color: green;
+    font-size: 24px;
+    position: absolute;
+    left: -25px;
+    font-weight: bold;
+    bottom: -2px;
 }
 #todo-list input[type="checkbox"][data-category="Business"] {
-  border-color: #2a82ee;
+    border-color: #2a82ee;
 }
 #todo-list input[type="checkbox"][data-category="Personal"] {
-  border-color: #ef0fe4;
+    border-color: #ef0fe4;
 }
 #todo-list li {
     border: none;
     outline: none;
 }
 .editing span {
-  width: 200px;
-  padding: 5px;
-  border: none;
-  outline: none;
+    width: 200px;
+    padding: 5px;
+    border: none;
+    outline: none;
 }
+span {
+    display: inline-block;
+    max-width: 100%;
+    /*overflow: hidden;*/
+    text-overflow: ellipsis;
+    white-space: pre-wrap;
+}
+.change-text {
+    border: none;
+    outline: none;
+    background-color: transparent;
+    adding: 0;
+    font-size: inherit;
+    color: inherit;
+    width: 100%;
+    flex: 1;
+}
+
 
 
 
