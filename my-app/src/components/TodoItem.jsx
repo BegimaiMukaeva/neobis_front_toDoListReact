@@ -1,12 +1,20 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 
 function TodoItem({ task, toggleTask, editTask, deleteTask }) {
   const [editing, setEditing] = useState(false);
   const [editedText, setEditedText] = useState(task.name);
 
+  const inpRef = useRef(null);
+
   const handleEditClick = () => {
     setEditing(true);
   };
+
+  useEffect(() => {
+    if (inpRef.current && editing) {
+      inpRef.current.focus();
+    }
+  }, [editing]);
 
   const handleSaveClick = () => {
     editTask(task.id, editedText);
@@ -24,6 +32,7 @@ function TodoItem({ task, toggleTask, editTask, deleteTask }) {
       {editing ? (
         <>
           <input
+            ref={inpRef}
             className="change-text"
             type="text"
             value={editedText}
